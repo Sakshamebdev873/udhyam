@@ -1,12 +1,10 @@
-import React from "react";
-import RegistrationForm from "./components/RegistrationForm";
+import UdyamRegistrationForm from './UdyamRegistrationForm';
 
 function App() {
   return (
-    <div style={{ padding: "20px" }}>
-      <RegistrationForm />
+    <div className="App">
+      <UdyamRegistrationForm />
     </div>
   );
 }
-
-export default App;
+export default App
