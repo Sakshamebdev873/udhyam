@@ -6,8 +6,7 @@ const registrationRouter = require('./routes/registration');
 const prisma = require('./utils/prisma.js');
 const path = require('path');
 
-const __filename = __filename; // already available
-const __dirname = __dirname;
+
 
 console.log(__filename, __dirname);
 
