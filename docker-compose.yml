@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: udhyam-backend
+    ports:
+      - "${PORT}:${PORT}"
+    env_file:
+      - .env
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    container_name: udhyam-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    env_file:
+      - .env
+    restart: unless-stopped

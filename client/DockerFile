@@ -1,0 +1,26 @@
+# Frontend Dockerfile
+FROM node:22 as build
+
+# Set working dir
+WORKDIR /app
+
+# Copy package.json & lock
+COPY package*.json ./
+
+# Install deps
+RUN npm install
+
+# Copy source
+COPY . .
+
+# Build static files
+RUN npm run build
+
+# Serve with nginx
+FROM nginx:alpine
+COPY --from=build /app/build /usr/share/nginx/html
+
+
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
