@@ -11,6 +11,7 @@ const path = require('path');
 console.log(__filename, __dirname);
 
 const app = express();
+app.use(express.static(path.join(__dirname, 'client', 'dist')));
 app.use(cors({ origin: "http://localhost:5173" }));
 app.use(bodyParser.json());
 app.get('/{*any}', (req, res) => {
