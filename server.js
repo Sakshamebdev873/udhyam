@@ -5,9 +5,12 @@ const cors = require('cors');
 const registrationRouter = require('./routes/registration');
 const prisma = require('./utils/prisma.js');
 const path = require('path');
-const { fileURLToPath } = require('url');
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+
+const __filename = __filename; // already available
+const __dirname = __dirname;
+
+console.log(__filename, __dirname);
+
 const app = express();
 app.use(cors({ origin: "http://localhost:5173" }));
 app.use(bodyParser.json());
